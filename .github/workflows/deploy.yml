@@ -1,22 +1,22 @@
-name: Auto Deploy React App to EC2
+name: Deploy React App to EC2
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   deploy:
+    name: SSH Deploy to EC2
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to EC2
+      - name: Deploy using SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
+          username: ubuntu
           key: ${{ secrets.EC2_KEY }}
           port: 22
-          script_stop: true
-          debug: true
           script: |
             bash /home/ubuntu/deploy.sh
