@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  reactapp:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "80:80"
+    container_name: reactapp_container

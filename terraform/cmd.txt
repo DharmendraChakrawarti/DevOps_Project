@@ -1,0 +1,4 @@
+cd DevOps_project/terraform
+terraform init
+terraform plan -var="key_name=YOUR_KEY_NAME"
+terraform apply -var="key_name=YOUR_KEY_NAME" -auto-approve
